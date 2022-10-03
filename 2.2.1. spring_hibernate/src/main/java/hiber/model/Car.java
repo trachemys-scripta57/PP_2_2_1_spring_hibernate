@@ -3,72 +3,44 @@ package hiber.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Cars")
+@Table(name = "cars")
 public class Car {
 
     @Id
-    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "model")
+    @Column
     private String model;
 
-    @Column(name = "series")
-    private String series;
+    @Column
+    private int series;
 
 
-    @OneToOne
-    @JoinColumn(name = "id", referencedColumnName = "id")
+    @OneToOne(mappedBy = "car")
     private User user;
 
     public Car() {
     }
 
-    public Car(String model, String series) {
+    public Car(String model, int series) {
         this.model = model;
         this.series = series;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getModel() {
         return model;
     }
 
-    public void setModel(String model) {
-        this.model = model;
-    }
-
-    public String getSeries() {
+    public int getSeries() {
         return series;
-    }
-
-    public void setSeries(String series) {
-        this.series = series;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 
     @Override
     public String toString() {
         return "Car{" +
-                "id=" + id +
-                ", model='" + model + '\'' +
-                ", series='" + series + '\'' +
-                ", user=" + user +
+                "model='" + model + '\'' +
+                ", series=" + series +
                 '}';
     }
 }
