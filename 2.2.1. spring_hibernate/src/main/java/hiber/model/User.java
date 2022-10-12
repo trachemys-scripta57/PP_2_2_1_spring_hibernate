@@ -33,36 +33,17 @@ public class User {
         this.email = email;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setCar(Car car) {
+    public User setCar(Car car) {
         this.car = car;
-    }
-
-    public Car getCar() {
-        return car;
+        return this;
     }
 
     @Override
     public String toString() {
-        return "User{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                '}';
+        return "User " + id +
+                " firstName: " + firstName +
+                ", lastName: " + lastName +
+                ", email='" + email + ", model - " + car.getModel() +
+                ", series - " + car.getSeries() + '}';
     }
 }
